@@ -1,0 +1,42 @@
+000 (750288.000.000) 2024-09-08 07:35:12 Job submitted from host: <146.179.108.134:9618?addrs=146.179.108.134-9618&alias=htcmaster00.hep.ph.ic.ac.uk&noUDP&sock=schedd_961_be9a>
+...
+001 (750288.000.000) 2024-09-08 07:35:12 Job executing on host: <146.179.108.47:9618?addrs=146.179.108.47-9618+[2a0c-5bc0-88-111-632-1ff-fee0-a7a8]-9618&alias=lxdgpu01.hep.ph.ic.ac.uk&noUDP&sock=startd_2406_e4f4>
+	SlotName: slot1_1@lxdgpu01.hep.ph.ic.ac.uk
+	AvailableGPUs = { GPUs_GPU_f49fbfc7 }
+	CondorScratchDir = "/srv/localstage/condor/dir_3682225"
+	Cpus = 32
+	Disk = 1507458920
+	GPUs = 1
+	GPUs_GPU_f49fbfc7 = [ GlobalMemoryMb = 45516; MaxSupportedVersion = 12060; DriverVersion = 12.6; ComputeUnits = 84; ECCEnabled = true; DeviceUuid = "f49fbfc7-d356-8a7c-f7e6-7743f70cfe2b"; DeviceName = "NVIDIA RTX A6000"; CoresPerCU = 128; ClockMhz = 1800.0; DevicePciBusId = "0000:83:00.0"; Capability = 8.6; Id = "GPU-f49fbfc7" ]
+	Memory = 128128
+...
+006 (750288.000.000) 2024-09-08 07:35:20 Image size of job updated: 33880
+	25  -  MemoryUsage of job (MB)
+	25456  -  ResidentSetSize of job (KB)
+...
+006 (750288.000.000) 2024-09-08 07:37:20 Image size of job updated: 699428
+	474  -  MemoryUsage of job (MB)
+	484540  -  ResidentSetSize of job (KB)
+...
+006 (750288.000.000) 2024-09-08 07:37:55 Image size of job updated: 825480
+	474  -  MemoryUsage of job (MB)
+	484540  -  ResidentSetSize of job (KB)
+...
+005 (750288.000.000) 2024-09-08 07:37:55 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:00:06, Sys 0 00:00:09  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:00:06, Sys 0 00:00:09  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage    Request  Allocated Assigned
+	   Cpus                 :        0         32         32 
+	   Disk (KB)            :        1 1356713028 1507458920 
+	   Gpus (Average)       :                   1          1 "GPU-f49fbfc7"
+	   Memory (MB)          :      474     128079     128128 
+
+	Job terminated of its own accord at 2024-09-08T06:37:55Z with exit-code 0.
+...

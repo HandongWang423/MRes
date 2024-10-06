@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/sample.py", line 25, in <module>
+    df_ggHidx = DF_proc[DF_proc == 1].sample(n=br[1]*samplenum).index #50 ZH
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/core/generic.py", line 6029, in sample
+    sampled_indices = sample.sample(obj_len, size, replace, weights, rs)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/core/sample.py", line 152, in sample
+    return random_state.choice(obj_len, size=size, replace=replace, p=weights).astype(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 1000, in numpy.random.mtrand.RandomState.choice
+ValueError: Cannot take a larger sample than population when 'replace=False'

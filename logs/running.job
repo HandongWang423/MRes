@@ -1,0 +1,9 @@
+executable = /vols/cms/hw423/Week14/logs/running.sh
+output = /vols/cms/hw423/Week14/logs/output.$(CLUSTER)
+error = /vols/cms/hw423/Week14/logs/output.$(CLUSTER)
+log = /vols/cms/hw423/Week14/logs/log.$(CLUSTER)
+request_gpus = 1
+request_memory = 16G
+
++MaxRuntime = 20000
+queue

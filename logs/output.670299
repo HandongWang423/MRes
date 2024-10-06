@@ -1,0 +1,43 @@
+/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pyarrow/pandas_compat.py:373: FutureWarning: is_sparse is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.SparseDtype)` instead.
+  if _pandas_api.is_sparse(col):
+/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pyarrow/pandas_compat.py:373: FutureWarning: is_sparse is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.SparseDtype)` instead.
+  if _pandas_api.is_sparse(col):
+        leadPhotonEn  leadPhotonMass  ...  diphotonMass  proc
+0           0.324109       -0.846865  ...    125.431389     0
+1          -0.595033        0.375206  ...    123.948257     0
+2          -0.455326        0.782563  ...    126.784737     0
+3          -0.466962        0.782563  ...    126.344772     0
+4          -0.564804        0.543939  ...    126.390701     0
+...              ...             ...  ...           ...   ...
+117345      1.605772       -1.661579  ...    123.861870     0
+117346     -0.669056       -0.439508  ...    124.277870     0
+117347      0.472957       -0.032151  ...    124.754501     0
+117348      0.460279       -0.846865  ...    125.144325     0
+117349     -0.923791       -0.032151  ...    124.873466     0
+
+[586750 rows x 143 columns]
+proc
+5    1047599
+4    1018990
+6     980000
+3     969815
+2     700000
+1     672000
+0     586750
+Name: count, dtype: int64
+Data input finished
+Data normalisation finished
+         leadPhotonEn  leadPhotonMass  leadPhotonPt  ...      4      5      6
+0            0.324109       -0.846865     -0.973053  ...  False  False  False
+1           -0.595033        0.375206     -0.318568  ...  False  False  False
+2           -0.455326        0.782563     -0.902453  ...  False  False  False
+3           -0.466962        0.782563     -0.595221  ...  False  False  False
+4           -0.564804        0.543939     -0.728455  ...  False  False  False
+...               ...             ...           ...  ...    ...    ...    ...
+5975149     -0.534135        0.543939     -0.255215  ...  False   True  False
+5975150     -0.335743       -0.032151     -0.264264  ...  False   True  False
+5975151     -0.556804       -0.439508     -0.131003  ...  False   True  False
+5975152      1.617227       -0.032151     -0.293469  ...  False   True  False
+5975153      0.707785       -0.032151      0.909616  ...  False   True  False
+
+[5975154 rows x 149 columns]

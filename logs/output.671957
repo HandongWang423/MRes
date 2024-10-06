@@ -1,0 +1,14 @@
+Wd_x40x60_x100_x14x2
+{'lr': 0.0001, 'batch_size': 30000, 'N_epochs': 400, 'seed': 0}
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/A_Post_trains/InferenceAware_Trainning.py", line 209, in <module>
+    X_train, X_test, y_train, y_test, w_train, w_test = train_test_split(dfx, dfy,dfw, test_size=0.2, random_state=42)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/sklearn/model_selection/_split.py", line 2559, in train_test_split
+    arrays = indexable(*arrays)
+             ^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/sklearn/utils/validation.py", line 443, in indexable
+    check_consistent_length(*result)
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/sklearn/utils/validation.py", line 397, in check_consistent_length
+    raise ValueError(
+ValueError: Found input variables with inconsistent numbers of samples: [4154839, 2914423, 2914423]

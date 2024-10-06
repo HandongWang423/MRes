@@ -1,0 +1,86 @@
+000 (719128.000.000) 2024-09-04 19:40:26 Job submitted from host: <146.179.108.134:9618?addrs=146.179.108.134-9618&alias=htcmaster00.hep.ph.ic.ac.uk&noUDP&sock=schedd_961_be9a>
+...
+001 (719128.000.000) 2024-09-04 19:40:27 Job executing on host: <146.179.108.87:9618?addrs=146.179.108.87-9618+[2a0c-5bc0-88-111-216-3eff-fe7f-1b4]-9618&alias=lxbgpu01.hep.ph.ic.ac.uk&noUDP&sock=startd_1686_08c4>
+	SlotName: slot1_1@lxbgpu01.hep.ph.ic.ac.uk
+	AvailableGPUs = { GPUs_GPU_0ed04028 }
+	CondorScratchDir = "/srv/localstage/condor/dir_1230275"
+	Cpus = 16
+	Disk = 735125135
+	GPUs = 1
+	GPUs_GPU_0ed04028 = [ GlobalMemoryMb = 12187; MaxSupportedVersion = 12060; DriverVersion = 12.6; ComputeUnits = 56; ECCEnabled = true; DeviceUuid = "0ed04028-b765-6c48-09e6-fc4e7aaf213a"; DeviceName = "Tesla P100-PCIE-12GB"; CoresPerCU = 64; ClockMhz = 1328.5; DevicePciBusId = "0000:00:03.0"; Capability = 6.0; Id = "GPU-0ed04028" ]
+	Memory = 85888
+...
+006 (719128.000.000) 2024-09-04 19:40:35 Image size of job updated: 6340
+	3  -  MemoryUsage of job (MB)
+	2304  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:42:35 Image size of job updated: 423368
+	404  -  MemoryUsage of job (MB)
+	413688  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:44:35 Image size of job updated: 446436
+	426  -  MemoryUsage of job (MB)
+	435280  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:46:35 Image size of job updated: 452172
+	433  -  MemoryUsage of job (MB)
+	442916  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:48:35 Image size of job updated: 456764
+	438  -  MemoryUsage of job (MB)
+	447616  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:50:36 Image size of job updated: 461712
+	442  -  MemoryUsage of job (MB)
+	452556  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:52:37 Image size of job updated: 462916
+	444  -  MemoryUsage of job (MB)
+	453748  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:54:38 Image size of job updated: 468412
+	449  -  MemoryUsage of job (MB)
+	459228  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:56:39 Image size of job updated: 473164
+	453  -  MemoryUsage of job (MB)
+	463792  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 19:58:39 Image size of job updated: 478456
+	458  -  MemoryUsage of job (MB)
+	468720  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 20:00:39 Image size of job updated: 481464
+	462  -  MemoryUsage of job (MB)
+	472244  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 20:02:39 Image size of job updated: 486632
+	467  -  MemoryUsage of job (MB)
+	477472  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 20:04:40 Image size of job updated: 487912
+	468  -  MemoryUsage of job (MB)
+	478588  -  ResidentSetSize of job (KB)
+...
+006 (719128.000.000) 2024-09-04 20:06:37 Image size of job updated: 490360
+	468  -  MemoryUsage of job (MB)
+	478588  -  ResidentSetSize of job (KB)
+...
+005 (719128.000.000) 2024-09-04 20:06:38 Job terminated.
+	(1) Normal termination (return value 0)
+		Usr 0 00:25:34, Sys 0 00:00:08  -  Run Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Run Local Usage
+		Usr 0 00:25:34, Sys 0 00:00:08  -  Total Remote Usage
+		Usr 0 00:00:00, Sys 0 00:00:00  -  Total Local Usage
+	0  -  Run Bytes Sent By Job
+	0  -  Run Bytes Received By Job
+	0  -  Total Bytes Sent By Job
+	0  -  Total Bytes Received By Job
+	Partitionable Resources :    Usage      Request Allocated Assigned
+	   Cpus                 :     0.99        16           16 
+	   Disk (KB)            :     1    661612621.50 735125135 
+	   Gpus (Average)       :     0            1            1 "GPU-0ed04028"
+	   Memory (MB)          :   468        85794        85888 
+
+	Job terminated of its own accord at 2024-09-04T19:06:37Z with exit-code 0.
+...

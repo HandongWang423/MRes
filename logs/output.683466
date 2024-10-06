@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/A_Post_trains/XGB.py", line 24, in <module>
+    data = pd.read_parquet(f'/vols/cms/hw423/Data/Week14/df_InfAwar_En_DPrmvd.parquet')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/io/parquet.py", line 670, in read_parquet
+    return impl.read(
+           ^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/io/parquet.py", line 265, in read
+    path_or_handle, handles, filesystem = _get_path_or_handle(
+                                          ^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/io/parquet.py", line 139, in _get_path_or_handle
+    handles = get_handle(
+              ^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pandas/io/common.py", line 872, in get_handle
+    handle = open(handle, ioargs.mode)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/vols/cms/hw423/Data/Week14/df_InfAwar_En_DPrmvd.parquet'

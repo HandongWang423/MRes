@@ -1,0 +1,14 @@
+x40x60_x100
+{'lr': 0.0003, 'batch_size': 128, 'N_epochs': 200, 'seed': 0}
+Index(['leadPhotonEn', 'leadPhotonMass', 'leadPhotonPt', 'leadPhotonEta',
+       'leadPhotonPhi', 'leadPhotonIDMVA', 'leadPhotonSigmaE', 'leadPhotonHoE',
+       'leadPhotonPfRelIsoAll', 'leadPhotonPfRelIsoChg',
+       ...
+       'dijetDiphoAbsDEta', 'leadJetDiphoDPhi', 'leadJetDiphoDEta',
+       'subleadJetDiphoDPhi', 'subleadJetDiphoDEta', 'nSoftJets', 'metPt',
+       'metPhi', 'metSumET', 'metSignificance'],
+      dtype='object', length=140)
+Data input finished
+MI selection finished
+>> Training...
+  0%|          | 0/200 [00:00<?, ?it/s]  0%|          | 0/200 [01:45<?, ?it/s, test_loss=1.65, train_loss=1.65]  0%|          | 1/200 [01:45<5:51:00, 105.83s/it, test_loss=1.65, train_loss=1.65]  0%|          | 1/200 [03:31<5:51:00, 105.83s/it, test_loss=1.64, train_loss=1.63]  1%|          | 2/200 [03:31<5:49:23, 105.88s/it, test_loss=1.64, train_loss=1.63]  1%|          | 2/200 [05:16<5:49:23, 105.88s/it, test_loss=1.63, train_loss=1.63]  2%|▏         | 3/200 [05:16<5:45:15, 105.16s/it, test_loss=1.63, train_loss=1.63]  2%|▏         | 3/200 [07:00<5:45:15, 105.16s/it, test_loss=1.55, train_loss=1.55]  2%|▏         | 4/200 [07:00<5:42:44, 104.92s/it, test_loss=1.55, train_loss=1.55]  2%|▏         | 4/200 [08:45<5:42:44, 104.92s/it, test_loss=1.54, train_loss=1.54]  2%|▎         | 5/200 [08:45<5:40:51, 104.88s/it, test_loss=1.54, train_loss=1.54]  2%|▎         | 5/200 [10:30<5:40:51, 104.88s/it, test_loss=1.54, train_loss=1.54]  3%|▎         | 6/200 [10:30<5:39:01, 104.85s/it, test_loss=1.54, train_loss=1.54]  3%|▎         | 6/200 [12:15<5:39:01, 104.85s/it, test_loss=1.54, train_loss=1.54]  4%|▎         | 7/200 [12:15<5:37:23, 104.89s/it, test_loss=1.54, train_loss=1.54]  4%|▎         | 7/200 [13:59<5:37:23, 104.89s/it, test_loss=1.54, train_loss=1.54]  4%|▍         | 8/200 [13:59<5:35:33, 104.86s/it, test_loss=1.54, train_loss=1.54]  4%|▍         | 8/200 [15:45<5:35:33, 104.86s/it, test_loss=1.54, train_loss=1.54]  4%|▍         | 9/200 [15:45<5:34:03, 104.94s/it, test_loss=1.54, train_loss=1.54]  4%|▍         | 9/200 [17:29<5:34:03, 104.94s/it, test_loss=1.53, train_loss=1.53]  5%|▌         | 10/200 [17:29<5:32:09, 104.89s/it, test_loss=1.53, train_loss=1.53]  5%|▌         | 10/200 [19:15<5:32:09, 104.89s/it, test_loss=1.54, train_loss=1.53]  6%|▌         | 11/200 [19:15<5:30:40, 104.98s/it, test_loss=1.54, train_loss=1.53]  6%|▌         | 11/200 [20:59<5:30:40, 104.98s/it, test_loss=1.54, train_loss=1.53]  6%|▌         | 12/200 [20:59<5:28:35, 104.87s/it, test_loss=1.54, train_loss=1.53]

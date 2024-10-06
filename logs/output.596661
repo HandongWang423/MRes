@@ -1,0 +1,15 @@
+/vols/cms/hw423/WeekF/MI.py:9: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+  set_matplotlib_formats('png', 'pdf', 'svg')
+/vols/cms/hw423/WeekF/MI.py:10: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+  set_matplotlib_formats('retina')
+Packaged Imported
+Traceback (most recent call last):
+  File "/vols/cms/hw423/WeekF/MI.py", line 27, in <module>
+    MIcol[i]= mutual_info_score(x1,dfl)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/sklearn/metrics/cluster/_supervised.py", line 790, in mutual_info_score
+    labels_true, labels_pred = check_clusterings(labels_true, labels_pred)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/sklearn/metrics/cluster/_supervised.py", line 70, in check_clusterings
+    raise ValueError("labels_pred must be 1D: shape is %r" % (labels_pred.shape,))
+ValueError: labels_pred must be 1D: shape is ()

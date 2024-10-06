@@ -1,0 +1,15 @@
+xgb_Wd_sftmx_md10_x7x3_s
+{'lr': 0.0001, 'batch_size': 10000, 'N_epochs': 200, 'seed': 0}
+>> Training...
+  0%|          | 0/200 [00:00<?, ?it/s]/vols/cms/hw423/Week14/A_Post_trains/InferenceAware_Trainning.py:92: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  theta = torch.tensor(theta_init)
+/vols/cms/hw423/Week14/A_Post_trains/InferenceAware_Trainning.py:72: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  return F.softmax(out)
+  0%|          | 0/200 [00:11<?, ?it/s, test_loss=19.9, train_loss=16.1]  0%|          | 1/200 [00:11<37:04, 11.18s/it, test_loss=19.9, train_loss=16.1]  0%|          | 1/200 [00:22<37:04, 11.18s/it, test_loss=14.9, train_loss=12]    1%|          | 2/200 [00:22<37:22, 11.33s/it, test_loss=14.9, train_loss=12]  1%|          | 2/200 [00:33<37:22, 11.33s/it, test_loss=6.66, train_loss=5.28]  2%|▏         | 3/200 [00:33<37:15, 11.35s/it, test_loss=6.66, train_loss=5.28]  2%|▏         | 3/200 [00:39<43:00, 13.10s/it, test_loss=6.66, train_loss=5.28]
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/A_Post_trains/InferenceAware_Trainning.py", line 211, in <module>
+    model, train_loss_ia, test_loss_ia = train_network(model_ia, X_train, X_test, y_train, y_test,w_train,w_test, train_hp=train_hp)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/Week14/A_Post_trains/InferenceAware_Trainning.py", line 166, in train_network
+    raise ValueError("Loss is NaN, terminating training")
+ValueError: Loss is NaN, terminating training

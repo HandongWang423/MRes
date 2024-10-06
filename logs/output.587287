@@ -1,0 +1,8 @@
+Index(['leadPhotonEn', 'leadPhotonMass', 'leadPhotonPt', 'leadPhotonEta',
+       'leadPhotonPhi', 'leadPhotonIDMVA', 'leadPhotonSigmaE', 'leadPhotonHoE',
+       'leadPhotonPfRelIsoAll', 'leadPhotonPfRelIsoChg',
+       ...
+       'leadJetDiphoDEta', 'subleadJetDiphoDPhi', 'subleadJetDiphoDEta',
+       'nSoftJets', 'metPt', 'metPhi', 'metSumET', 'metSignificance', 'weight',
+       'proc'],
+      dtype='object', length=143)

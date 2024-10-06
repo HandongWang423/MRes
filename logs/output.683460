@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/A_Post_trains/XGB.py", line 22, in <module>
+    y_pred = xgb_classifier.predict_proba(dfx)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/sklearn.py", line 906, in save_model
+    self.get_booster().save_model(fname)
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/core.py", line 2638, in save_model
+    _check_call(_LIB.XGBoosterSaveModel(self.handle, c_str(fname)))
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/core.py", line 284, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [15:56:53] /workspace/dmlc-core/src/io/local_filesys.cc:210: Check failed: allow_null:  LocalFileSystem::Open "vols/cms/hw423/Data/Week14/xgb_model_sftmx_bld_md10.json": No such file or directory
+Stack trace:
+  [bt] (0) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x22d7cc) [0x14c02d8a27cc]
+  [bt] (1) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0xe06c4d) [0x14c02e47bc4d]
+  [bt] (2) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0xdf3065) [0x14c02e468065]
+  [bt] (3) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(XGBoosterSaveModel+0x4f) [0x14c02d7ac57f]
+  [bt] (4) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(+0xa052) [0x14c04d84b052]
+  [bt] (5) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(+0x8925) [0x14c04d849925]
+  [bt] (6) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(ffi_call+0xde) [0x14c04d84a06e]
+  [bt] (7) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/_ctypes.cpython-311-x86_64-linux-gnu.so(+0x92e4) [0x14c04d85b2e4]
+  [bt] (8) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/_ctypes.cpython-311-x86_64-linux-gnu.so(+0x8836) [0x14c04d85a836]
+
+

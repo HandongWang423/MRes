@@ -1,0 +1,14 @@
+x60x40_x100_fc
+{'lr': 0.0003, 'batch_size': 1280, 'N_epochs': 20, 'seed': 0}
+Index(['leadPhotonEn', 'leadPhotonMass', 'leadPhotonPt', 'leadPhotonEta',
+       'leadPhotonPhi', 'leadPhotonIDMVA', 'leadPhotonSigmaE', 'leadPhotonHoE',
+       'leadPhotonPfRelIsoAll', 'leadPhotonPfRelIsoChg',
+       ...
+       'dijetDiphoAbsDEta', 'leadJetDiphoDPhi', 'leadJetDiphoDEta',
+       'subleadJetDiphoDPhi', 'subleadJetDiphoDEta', 'nSoftJets', 'metPt',
+       'metPhi', 'metSumET', 'metSignificance'],
+      dtype='object', length=140)
+Data input finished
+MI selection finished
+>> Training...
+  0%|          | 0/20 [00:00<?, ?it/s]  0%|          | 0/20 [00:37<?, ?it/s, test_loss=0.884, train_loss=0.884]  5%|▌         | 1/20 [00:37<11:45, 37.16s/it, test_loss=0.884, train_loss=0.884]  5%|▌         | 1/20 [01:14<11:45, 37.16s/it, test_loss=0.877, train_loss=0.877] 10%|█         | 2/20 [01:14<11:09, 37.19s/it, test_loss=0.877, train_loss=0.877]

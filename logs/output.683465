@@ -1,0 +1,22 @@
+Traceback (most recent call last):
+  File "/vols/cms/hw423/Week14/A_Post_trains/XGB.py", line 23, in <module>
+    xgb_classifier.load_model(f'/vols/cms/hw423/Data/Week14/xgb_model_{savecode}')
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/sklearn.py", line 915, in load_model
+    self.get_booster().load_model(fname)
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/core.py", line 2693, in load_model
+    _check_call(_LIB.XGBoosterLoadModel(self.handle, c_str(fname)))
+  File "/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/core.py", line 284, in _check_call
+    raise XGBoostError(py_str(_LIB.XGBGetLastError()))
+xgboost.core.XGBoostError: [16:56:15] /workspace/dmlc-core/src/io/local_filesys.cc:210: Check failed: allow_null:  LocalFileSystem::Open "/vols/cms/hw423/Data/Week14/xgb_model_sftmx_bld_md10": No such file or directory
+Stack trace:
+  [bt] (0) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0x22d7cc) [0x1505f14c77cc]
+  [bt] (1) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0xe06c4d) [0x1505f20a0c4d]
+  [bt] (2) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(+0xdf3065) [0x1505f208d065]
+  [bt] (3) /vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/xgboost/lib/libxgboost.so(XGBoosterLoadModel+0x1f3) [0x1505f13d6ec3]
+  [bt] (4) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(+0xa052) [0x15061146c052]
+  [bt] (5) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(+0x8925) [0x15061146a925]
+  [bt] (6) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/../../libffi.so.8(ffi_call+0xde) [0x15061146b06e]
+  [bt] (7) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/_ctypes.cpython-311-x86_64-linux-gnu.so(+0x92e4) [0x15061147c2e4]
+  [bt] (8) /vols/cms/hw423/env/envs/env/lib/python3.11/lib-dynload/_ctypes.cpython-311-x86_64-linux-gnu.so(+0x8836) [0x15061147b836]
+
+

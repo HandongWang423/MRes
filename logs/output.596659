@@ -1,0 +1,12 @@
+/vols/cms/hw423/WeekF/MI.py:9: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+  set_matplotlib_formats('png', 'pdf', 'svg')
+/vols/cms/hw423/WeekF/MI.py:10: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+  set_matplotlib_formats('retina')
+Packaged Imported
+Index(['leadPhotonEn', 'leadPhotonMass', 'leadPhotonPt', 'leadPhotonEta',
+       'leadPhotonPhi', 'leadPhotonIDMVA', 'leadPhotonSigmaE', 'leadPhotonHoE',
+       'leadPhotonPfRelIsoAll', 'leadPhotonPfRelIsoChg',
+       ...
+       'metSignificance', 'weight', 'diphotonMass', '0', '1', '2', '3', '4',
+       '5', '6'],
+      dtype='object', length=149)

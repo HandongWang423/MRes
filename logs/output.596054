@@ -1,0 +1,2 @@
+/vols/cms/hw423/env/envs/env/lib/python3.11/site-packages/pyarrow/pandas_compat.py:373: FutureWarning: is_sparse is deprecated and will be removed in a future version. Check `isinstance(dtype, pd.SparseDtype)` instead.
+  if _pandas_api.is_sparse(col):

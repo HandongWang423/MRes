@@ -1,0 +1,2 @@
+# Inference-Aware Neural Optimisation on Higgs boson measurement in Diphoton Channel
+This repository contains the MRes project for the MRes in Machine Learning and Big Data in Physical Science at Imperial College. The main project code can be found in the `/Week14` folder, which contains the latest version of the entire project. The `/WeekF` folder primarily includes the code for generating plots. Please note that the data used in this project is not included in the repository.

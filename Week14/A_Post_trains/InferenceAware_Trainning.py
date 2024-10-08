@@ -1,7 +1,9 @@
 '''
 This is the file for Post Inference-aware Training
 '''
-
+############################################
+############ Package impoarting ############
+############################################
 
 import pandas as pd
 import numpy as np
@@ -19,10 +21,15 @@ from sklearn.model_selection import train_test_split
 torch.set_default_dtype(torch.float64)
 
 
+############################################
+######## The pre-defined parameters ########
+############################################
 
-# filecode = 'Wd_x40x60_x100'
+#The file directions 
 filecode = 'xgb_Wd_sftmx_md10'
 savecode = 'x7x3_5e3_4'
+
+#Hyper-parameters
 train_hp = {
     "lr":1e-4,
     "batch_size":20000,
@@ -30,17 +37,20 @@ train_hp = {
     "N_epochs":200,
     "seed":0,
 }
-nodes = [7]*3
-Wd = True
-print(f'{filecode}_{savecode}')
-print(train_hp)
+nodes = [7]*3 #number of nodes for each layer
+Wd = True #If weighted
 
+############################################
+######## The pre-defined functions #########
+############################################
 
+# Set Seed
 def set_seed(seed):
     torch.manual_seed(seed)
     np.random.seed(seed)
 set_seed(train_hp['seed'])
 
+# Hessian matrix to tensor
 def hess_to_tensor(H):
     hess_elements = []
     for i in range(len(H)):
@@ -48,8 +58,37 @@ def hess_to_tensor(H):
             hess_elements.append(H[i][j].reshape(1))
     return torch.cat(hess_elements).reshape(len(H),len(H))
 
+# Smooth argmax for confusion matrix
+def smooth_argmax(tensor, dim=-1, temperature=1.0):
+    softmax_tensor =F.softmax(tensor / temperature, dim=dim)
+    return softmax_tensor
 
+# Torch-differentiable confusion matrix
+def confusion_matrix(OC,label,weight,model):
+    label_w = weight.unsqueeze(1)*label # weighted one-hot encoding for labels
+    pred_matrix = smooth_argmax(model(OC),temperature=.0001,dim=1)
+    
+    # Use matrix multiplication for confusion matrix calculation
+    confusion_matrix = torch.matmul(pred_matrix.t(),label_w)[1:,:] 
+    return confusion_matrix
 
+# Negative log-likelihood function of binned Poisson distribution 
+def nll(theta1,OC,label,weight,model):
+    cm = confusion_matrix(OC,label,weight,model)
+    O = torch.sum(cm,dim=1) 
+    theta0 = torch.ones(1) # Make the signal strength for background 1
+    theta = torch.cat([theta0,theta1])
+    return -(O@(torch.log(cm@theta))-torch.sum((cm@theta)))
+
+# Inference aware loss function (square root of sum of variance)
+def InfAwareLoss(input,label,weight, model,theta_init = torch.ones(6)):
+    theta = torch.tensor(theta_init) # Signal strength modifiers
+    hess = torch.func.hessian(nll,0)(theta,input,label,weight,model) # Hessian matrix at 1s
+    H = hess_to_tensor(hess)
+    I = torch.inverse(H)/len(label) # Fisher information matrix
+    return torch.trace(I)**(1/2) # Can be changed to determinates or other matrices
+
+# Defined the neural network by torch
 class Net(nn.Module):
     def __init__(self, n_features=7, nodes=[7,7], output_nodes=7,temp=0.0001):
         super(Net, self).__init__()
@@ -60,52 +99,31 @@ class Net(nn.Module):
         for i in range(len(n_nodes) - 1):
             linear_layer = nn.Linear(n_nodes[i], n_nodes[i+1])
 
-            with torch.no_grad():
+            #Identicaly initialisation
+            with torch.no_grad(): #Identical matrix for weight
                 linear_layer.weight.copy_(torch.eye(n_nodes[i+1], n_nodes[i]))
-            with torch.no_grad():
+            with torch.no_grad(): #Zero for bias
                 linear_layer.bias.zero_()
+                
             self.layers.append(linear_layer)
-            
             self.layers.append(nn.ReLU())
         
-        
-
-
     def forward(self, x):
         out = self.layers[0](x)
         for layer in self.layers[1:]:
             out = layer(out)
         return F.softmax(out)
         
-    def set_temperature(self, temp):
-        self.temperature = temp
 
-def smooth_argmax(tensor, dim=-1, temperature=1.0):
-    softmax_tensor =F.softmax(tensor / temperature, dim=dim)
-    return softmax_tensor
-def confusion_matrix(OC,label,weight,model):
-    label_w = weight.unsqueeze(1)*label
-    pred_matrix = smooth_argmax(model(OC),temperature=.0001,dim=1)
-    confusion_matrix = torch.matmul(pred_matrix.t(),label_w)[1:,:]
-    return confusion_matrix
-def nll(theta1,OC,label,weight,model):
-    cm = confusion_matrix(OC,label,weight,model)
-    O = torch.sum(cm,dim=1)
-    theta0 = torch.ones(1)
-    theta = torch.cat([theta0,theta1])
-    return -(O@(torch.log(cm@theta))-torch.sum((cm@theta)))
-def InfAwareLoss(input,label,weight, model,theta_init = torch.ones(6)):
-    theta = torch.tensor(theta_init)
-    hess = torch.func.hessian(nll,0)(theta,input,label,weight,model)
-    H = hess_to_tensor(hess)
-    I = torch.inverse(H)/len(label)
-    return torch.trace(I)**(1/2)
 
-#Define the trainning function
+
+#Define the trainning function (Basically defined by Jon)
 from NNfunctions import get_batches, get_total_loss,get_total_lossM
 def train_network(model, X_train,X_test,y_train,y_test,w_train,w_test, train_hp={}):
     optimiser = torch.optim.Adam(model.parameters(), lr=train_hp["lr"])
     # optimiser = torch.optim.SGD(model.parameters(), lr=0.01)
+    
+    # To numpy
     X_train =X_train.to_numpy()
     X_test = X_test.to_numpy()
     y_train = y_train.to_numpy()
@@ -122,14 +140,12 @@ def train_network(model, X_train,X_test,y_train,y_test,w_train,w_test, train_hp=
         for i_epoch in t:
             model.train()
             
-            # print(i)
-            # "get_batches": function defined in statml_tools.py to separate the training data into batches
+            # "get_batches": function defined by Jon to separate the training data into batches
             if i_epoch <20:
                 batch_gen = get_batches([X_train, y_train, w_train], batch_size=train_hp['BS'],randomise=True, include_remainder=False)
             else:
                 batch_gen = get_batches([X_train, y_train, w_train], batch_size=train_hp['batch_size'],randomise=True, include_remainder=False)
-            # batch_gen = create_balanced_batches(X_train, y_train, w_train, batch_size = train_hp['batch_size'])
-            # print(batch_gen)
+
             for batch in batch_gen:
                 X_tensor, y_tensor, w_tensor = batch
                 optimiser.zero_grad()
@@ -141,10 +157,6 @@ def train_network(model, X_train,X_test,y_train,y_test,w_train,w_test, train_hp=
             
 
             model.eval()
-            # for layer in model.layers:
-            #     if isinstance(layer, nn.Linear):
-            #         print(i_epoch, layer.weight.data)
-            # torch.save(model(torch.tensor(oc,dtype = torch.float64)),'/vols/cms/hw423/Data/Week14/oc_test_ia.pt')
             Loss = ia_loss
             train_loss.append(get_total_lossM(model, Loss, X_train, y_train,w_train))
             test_loss.append(get_total_lossM(model, Loss, X_test, y_test,w_test))
@@ -160,11 +172,16 @@ def train_network(model, X_train,X_test,y_train,y_test,w_train,w_test, train_hp=
 
     return model, train_loss, test_loss
 
+##############################
+######## Data import #########
+##############################
 
-
+# Outcome softmax score from pre-trainned models
 oc = np.load(f'/vols/cms/hw423/Data/Week14/octest_{filecode}.npy')
 df = pd.DataFrame(oc)
 dfx = df
+
+#The label and weights
 if Wd:
     label = pd.read_pickle('/vols/cms/hw423/Data/Week14/label_InfA_DPrmvd.pkl')
     dfw = pd.read_pickle('/vols/cms/hw423/Data/Week14/weight_InfA_DPrmvd.pkl')
@@ -175,7 +192,9 @@ dfy = pd.get_dummies(label)
 
 
 
-
+########################
+######## Train #########
+########################
 model_ia = Net(n_features=7, nodes=nodes, output_nodes=7)
 
 X_train, X_test, y_train, y_test, w_train, w_test = train_test_split(dfx, dfy,dfw, test_size=0.2, random_state=42)
@@ -187,6 +206,14 @@ model, train_loss_ia, test_loss_ia = train_network(model_ia, X_train, X_test, y_
 data = df
 oc= model(torch.tensor(data.to_numpy(),dtype=torch.float64))
 octest =pd.DataFrame(oc.detach(), index = data.index)
+
+###################################
+######## Store the result #########
+###################################
+
+# Soft max score after IA_training
 np.save(f'/vols/cms/hw423/Data/Week14/Post/octest_{filecode}_{savecode}.npy', np.array(octest))
+
+# Loss functions
 np.save(f'/vols/cms/hw423/Data/Week14/Post/test_loss_{filecode}_{savecode}.npy',np.array(test_loss_ia))
 np.save(f'/vols/cms/hw423/Data/Week14/Post/train_loss_{filecode}_{savecode}.npy',np.array(train_loss_ia))
